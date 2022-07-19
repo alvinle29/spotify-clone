@@ -1,19 +1,28 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Login from './components/Login'
+import Spotify from './components/Spotify';
+import { reducerCases } from './utils/Constants';
+import { useStateProvider } from './utils/StateProvider';
 
 export default function App() {
-  useEffect(()=>{
+  const [{ token }, dispatch] = useStateProvider();
+
+  useEffect(() => {
     const hash = window.location.hash;
     console.log(hash)
-    if (hash){
+    if (hash) {
       const token = hash.substring(1).split("&")[0].split("=")[1];
       console.log(token)
+      dispatch({ type: reducerCases.SET_TOKEN, token })
+      //why type?
     }
-  },[])
+  }, [token, dispatch])
 
   return (
     <div>
-      <Login/>
+      {
+        token ? <Spotify/> : <Login /> 
+      }
     </div>
   )
 }
