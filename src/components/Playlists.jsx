@@ -24,7 +24,7 @@ export default function Playlists() {
         return { name, id };
       });
       console.log(playlists)
-      dispatch({ type: reducerCases.SET_PLAYLISTS, playlists })
+      dispatch({ type: reducerCases.SET_USER, playlists })
     }
 
     getPlaylistData();
