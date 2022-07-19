@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 export default function Login() {
 	const handleClick = () => {
@@ -22,8 +22,9 @@ export default function Login() {
 	return (
 		<Container>
 			<img
-				src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png'
-				alt='spotify'></img>
+				src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png"
+				alt="spotify">
+			</img>
 			<button onClick={handleClick}>Connect Spotify</button>
 		</Container>
 	)

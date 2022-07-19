@@ -1,24 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
-import SideBar from './SideBar'
-import NavBar from './NavBar'
-import Body from './Body'
-import Footer from './Footer'
+import SideBar from "./SideBar"
+import NavBar from "./NavBar"
+import Body from "./Body"
+import Footer from "./Footer"
 
 export default function Spotify() {
 	return (
 		<Container>
-			<div className='spotify__body'>
+			<div className="spotify__body">
 				<SideBar />
-				<div className='body'>
+				<div className="body">
 					<NavBar />
-					<div className='body__content'>
+					<div className="body__content">
 						<Body />
 					</div>
 				</div>
 			</div>
-			<div className='spotify__footer'>
+			<div className="spotify__footer">
 				<Footer/>
 			</div>
 		</Container>
