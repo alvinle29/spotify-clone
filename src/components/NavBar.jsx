@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
+
 import { FaSearch } from "react-icons/fa"
 import { CgProfile } from "react-icons/cg"
 import { useStateProvider } from "../utils/StateProvider"
 
 export default function NavBar() {
 	const [{ userData }] = useStateProvider()
-	console.log(userData)
+
 	return (
 		<Container>
 			<div className="search__bar">
@@ -16,7 +17,7 @@ export default function NavBar() {
 			<div className="avatar">
 				<a href="#">
 					<CgProfile />
-					<span>{userData?.name}</span>
+					<span>{userData?.userName}</span>
 				</a>
 			</div>
 		</Container>
@@ -53,12 +54,21 @@ const Container = styled.div`
 		background-color: black;
 		padding: 0.5rem 0.3rem;
 		border-radius: 2rem;
+		padding-right: 1rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		a{
+		a {
 			display: flex;
 			justify-content: center;
+			gap: 0.5rem;
+			text-decoration: none;
+			color: white;
+			align-items: center;
+			font-weight: bold;
+			svg {
+				font-size: 1rem;
+			}
 		}
 	}
 `
