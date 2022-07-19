@@ -1,21 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Spotify() {
-  return (
-    <Container>
-        <div className='spotify__body'>
-            <div className='body'>
-                <div className='body__content'>
+import SideBar from './SideBar'
+import NavBar from './NavBar'
+import Body from './Body'
+import Footer from './Footer'
 
-                </div>
-            </div>
-        </div>
-        <div className='spotify__footer'></div>
-    </Container>
-  )
+export default function Spotify() {
+	return (
+		<Container>
+			<div className='spotify__body'>
+				<SideBar />
+				<div className='body'>
+					<NavBar />
+					<div className='body__content'>
+						<Body />
+					</div>
+				</div>
+			</div>
+			<div className='spotify__footer'>
+				<Footer/>
+			</div>
+		</Container>
+	)
 }
 
 const Container = styled.div`
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 85vh 15vh;
 
+	.spotify__body {
+		display: grid;
+		grid-template-columns: 15vw 85vw;
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(transparent, rgba(0,0,0,1));
+		background-color: rgb(22, 87, 100);
+
+		.body {
+			height: 100%;
+			width: 100%;
+			overflow: auto;
+		}
+	}
 `
