@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import axios from "axios"
 
@@ -10,30 +10,32 @@ import { useStateProvider } from "../utils/StateProvider"
 import { reducerCases } from "../utils/Constants"
 
 export default function Spotify() {
-	const [{token}, dispatch] = useStateProvider();
+	const [{ token }, dispatch] = useStateProvider();
 
-	useEffect(()=>{
+	useEffect(() => {
 		const getUserData = async () => {
-      const response = await axios.get(
-        "https://api.spotify.com/v1/me",
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-          }
-        }
-      )
-      const data = response.data
-      console.log(data)
-
+			const response = await axios.get(
+				"https://api.spotify.com/v1/me",
+				{
+					headers: {
+						Authorization: "Bearer " + token,
+						"Content-Type": "application/json",
+					}
+				}
+			)
+			const data = response.data
 			const userData = {
 				userId: data.id,
 				userName: data.display_name,
 			};
-    }
-	dispatch({type: reducerCases.SET_USER, userData})
-  getUserData();
-	},[dispatch, token])
+
+			console.log(userData)
+
+			dispatch({ type: reducerCases.SET_USER, userData })
+
+		}
+		getUserData();
+	}, [dispatch, token])
 
 	return (
 		<Container>
@@ -47,7 +49,7 @@ export default function Spotify() {
 				</div>
 			</div>
 			<div className="spotify__footer">
-				<Footer/>
+				<Footer />
 			</div>
 		</Container>
 	)
