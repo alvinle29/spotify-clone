@@ -63,7 +63,9 @@ const Container = styled.div`
 				gap: 1rem;
 				cursor: pointer;
 				transition: 0.3s ease-in-out;
-				&: hover {
+
+				&:hover
+				{
 					color: white
 				}
 			}
