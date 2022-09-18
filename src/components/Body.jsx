@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { AiFillClockCircle } from "react-icons/ai"
 
 export default function Body() {
 	return (
