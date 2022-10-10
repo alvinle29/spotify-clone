@@ -14,15 +14,12 @@ export default function Spotify() {
 
 	useEffect(() => {
 		const getUserData = async () => {
-			const response = await axios.get(
-				"https://api.spotify.com/v1/me",
-				{
-					headers: {
-						Authorization: "Bearer " + token,
-						"Content-Type": "application/json",
-					}
+			const response = await axios.get("https://api.spotify.com/v1/me", {
+				headers: {
+					Authorization: "Bearer " + token,
+					"Content-Type": "application/json",
 				}
-			)
+			})
 			const data = response.data
 			const userData = {
 				userId: data.id,
