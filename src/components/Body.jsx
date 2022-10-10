@@ -99,7 +99,7 @@ export default function Body() {
 										</div>
 										<div className="col">
 											<span>{duration}</span>
-										</div>									
+										</div>
 									</div>
 								)
 							})}
@@ -113,6 +113,29 @@ export default function Body() {
 }
 
 const Container = styled.div`
-			background: linear-gradient(transparent, rgba(0,0,0,1));
-			background-color: rgb(22, 87, 100);;
+	background: linear-gradient(transparent, rgba(0,0,0,1));
+	background-color: rgb(22, 87, 100);
+
+	.playlist {
+		margin: 0 2 rem;
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		.image {
+			img {
+				height: 15rem;
+				box-shadow: rgba(0,0,0,0.1) 0px 25px 50px -12px;
+			}
+		}
+		.details {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			color: #e0dede;
+			.title {
+				color: white;
+				font-size: 4rem;
+			}
+		}
+	}
 			`
