@@ -5,7 +5,7 @@ import { useStateProvider } from "../utils/StateProvider"
 import axios from "axios"
 import { reducerCases } from "../utils/Constants"
 
-export default function Body() {
+export default function Body({ headerBackground }) {
 	const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] = useStateProvider()
 	useEffect(() => {
 		const getInitialPlaylist = async () => {
@@ -41,8 +41,14 @@ export default function Body() {
 		getInitialPlaylist()
 	}, [token, dispatch, selectedPlaylistId])
 
+	const convertMsToMinutesAndSeconds = (ms) => {
+		const minutes = Math.floor(ms / 60000)
+		const seconds = ((ms % 60000) / 1000).toFixed(0)
+		return minutes + ":" + (seconds < 10 ? "0" : "") + seconds
+	}
+
 	return (
-		<Container>
+		<Container headerBackground={headerBackground}>
 			{selectedPlaylist && (
 				<>
 					<div className="playlist">
@@ -98,7 +104,7 @@ export default function Body() {
 											<span>{album}</span>
 										</div>
 										<div className="col">
-											<span>{duration}</span>
+											<span>{convertMsToMinutesAndSeconds(duration)}</span>
 										</div>
 									</div>
 								)
@@ -113,8 +119,6 @@ export default function Body() {
 }
 
 const Container = styled.div`
-	background: linear-gradient(transparent, rgba(0,0,0,1));
-	background-color: rgb(22, 87, 100);
 
 	.playlist {
 		margin: 0 2 rem;
@@ -148,6 +152,8 @@ const Container = styled.div`
 			top: 15vh;
 			padding: 1rem 3rem;
 			transition: 0.3s ease-in-out;
+			background-color: ${({ headerBackground }) => headerBackground
+		? "rgba(0,0,0,0.3)" : "none"};
 		}
 	}
 	.tracks {
